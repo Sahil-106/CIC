@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenant Details Fetcher</title>
+    <title>Tenant Details</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,7 +30,7 @@
             font-weight: bold;
         }
         input[type="text"] {
-            width: calc(100% - 22px); /* Adjust for padding and border */
+            width: calc(100% - 22px);
             padding: 10px;
             margin-bottom: 20px;
             border: 1px solid #ddd;
@@ -55,8 +55,8 @@
             background-color: #e9e9e9;
             padding: 15px;
             border-radius: 4px;
-            white-space: pre-wrap; /* Ensures long lines wrap */
-            word-wrap: break-word; /* Ensures long words break */
+            white-space: pre-wrap; 
+            word-wrap: break-word; 
             font-family: 'Courier New', Courier, monospace;
             margin-top: 20px;
             border: 1px solid #ccc;
@@ -72,16 +72,16 @@
 </head>
 <body>
     <div class="container">
-        <h1>Tenant Details Fetcher</h1>
+        <h1>Tenant Details</h1>
 
         <form id="tenantForm">
-            <label for="public_fqdn">Enter Public FQDN (or partial FQDN):</label>
+            <label for="public_fqdn">Enter FQDN:</label>
             <input type="text" id="public_fqdn" name="public_fqdn" >
             <button type="submit">Get Tenant Details</button>
         </form>
 
         <div id="result" class="result">
-            <!-- Results will be displayed here -->
+           
         </div>
     </div>
 
