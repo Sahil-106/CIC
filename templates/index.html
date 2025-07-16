@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- THIS FROMT END IS MADE WITH AI -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,7 +31,7 @@
             font-weight: bold;
         }
         input[type="text"] {
-            width: calc(100% - 22px);
+            width: calc(100% - 22px); 
             padding: 10px;
             margin-bottom: 20px;
             border: 1px solid #ddd;
@@ -55,8 +56,8 @@
             background-color: #e9e9e9;
             padding: 15px;
             border-radius: 4px;
-            white-space: pre-wrap; 
-            word-wrap: break-word; 
+            white-space: pre-wrap; /* Ensures long lines wrap */
+            word-wrap: break-word; /* Ensures long words break */
             font-family: 'Courier New', Courier, monospace;
             margin-top: 20px;
             border: 1px solid #ccc;
@@ -68,22 +69,29 @@
             font-weight: bold;
             margin-top: 10px;
         }
+        .mess{
+            margin-top: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Tenant Details</h1>
+        <h1>Tenant Details(UNDER DEVELOPMENT)</h1>
 
         <form id="tenantForm">
             <label for="public_fqdn">Enter FQDN:</label>
-            <input type="text" id="public_fqdn" name="public_fqdn" >
+            <input type="text" id="public_fqdn" name="public_fqdn">
             <button type="submit">Get Tenant Details</button>
         </form>
 
         <div id="result" class="result">
-           
+            <!-- Results will be displayed here -->
         </div>
     </div>
+    <div class="mess">
+            <h6>MADE WITH PAIN</h6>
+        </div>
 
     <script>
         document.getElementById('tenantForm').addEventListener('submit', async function(event) {
