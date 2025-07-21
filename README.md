@@ -57,7 +57,9 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ## Deployment
 
-This project is configured for easy deployment to [Vercel](https://vercel.com). The `vercel.json` file in the root directory contains the necessary build and routing configuration for deploying the Flask application as a serverless function.
+This project is configured for easy deployment to Render. 
+
+Additionally The `vercel.json` file in the root directory contains the necessary build and routing configuration for deploying the Flask application as a serverless function on Vercel.
 
 ## License
 
