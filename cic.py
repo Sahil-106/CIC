@@ -82,6 +82,7 @@ def get_tenant():
             return redirect(url_for('login'))
 
     public_fqdn = request.args.get('public_fqdn')
+    public_fqdn=public_fqdn.strip()
     if not public_fqdn:
         return jsonify({"error": "Missing 'public_fqdn' parameter"}), 400
 
