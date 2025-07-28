@@ -41,7 +41,7 @@ def login():
         )
 
         if response.status_code == 200:
-            # Save user info in  session
+            
             session['logged_in'] = True
             session['username'] = username
             session['password'] = password
@@ -108,7 +108,12 @@ def get_tenant():
         system_url = f"{BASE_URL}/odata/systems('{systemuuid}')?$select=updategroup,fpaversion,rooturl,size"
         response2 = requests_session.get(system_url)
         system_data = response2.json()
+        
+        saml_url = f"{BASE_URL}/TMS/tenants/{uuid}/config?details=customIdp"
 
+        samlreposnse= requests_session.get(saml_url)
+        samlreposnse1=samlreposnse.json()
+        samlresponse12=samlreposnse1['customIdp']
         
         fqdn = tenant_details.get('publicFqdn')
         system_url_val = tenant_details.get('systemUrl')
@@ -119,6 +124,8 @@ def get_tenant():
         fpa_version = system_data.get('fpaversion')
         update_group = system_data.get('updategroup')
         cic_link_uuid = tenant_details.get('uuid')
+        licenses = tenant_details['license']
+        owneremail=tenant_details.get('ownerEmail')
         bypassondema = cloud_id_host[:-6] if cloud_id_host else ""
 
         formatted_output = f"""
@@ -133,6 +140,16 @@ Update Group: {update_group}
 ----!----
 CIC Link: {BASE_URL}/static/index.html#/Tenant/{cic_link_uuid}
 Bypass SAML: {fqdn}/?saml2idp={bypassondema}
+
+---------------------------------------------------
+               SAML STATUS + LICENSE INFO
+---------------------------------------------------
+
+Owner Email : {owneremail}
+SAML : {samlresponse12.get('customIdpEnabled')}
+PLANNING PROFESSIONAL :{licenses.get('thresholdProfessionalUser')}
+PLANNING STANDARD : {licenses.get('thresholdStandardUser')}
+BUSINESS INTELLGENCE : {licenses.get('thresholdBIUser')}
         """
         return formatted_output, 200, {'Content-Type': 'text/plain'}
 
