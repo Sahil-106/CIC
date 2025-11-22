@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/cic.py",
+      "src": "cic.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "api/cic.py"
+      "src": "/(.*)",
+      "dest": "cic.py"
     }
   ]
 }
