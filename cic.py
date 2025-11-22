@@ -44,7 +44,7 @@ def login():
             
             session['logged_in'] = True
             session['username'] = username
-            session['password'] = password
+            ##session['password'] = password
             return redirect(url_for('index'))
         else:
             return render_template('login.html', error="Login failed. Check your credentials.")
@@ -77,9 +77,7 @@ def get_tenant():
     if not is_session_valid():
         return redirect(url_for('login'))
 
-    if not is_session_valid():
-        if not login_user_from_session():
-            return redirect(url_for('login'))
+    
 
     public_fqdn = request.args.get('public_fqdn')
     public_fqdn=public_fqdn.strip()
@@ -99,16 +97,17 @@ def get_tenant():
         uuid = tenant_data.get('uuid')
         systemuuid = tenant_data.get('system')
 
-        
+        ##tenant detaisl
         tenant_url1 = f"{BASE_URL}/TMS/tenants?uuid={uuid}"
         response3 = requests_session.get(tenant_url1)
         tenant_details = response3.json()
 
-      
+        ##system details
         system_url = f"{BASE_URL}/odata/systems('{systemuuid}')?$select=updategroup,fpaversion,rooturl,size"
         response2 = requests_session.get(system_url)
         system_data = response2.json()
         
+        ##saml status
         saml_url = f"{BASE_URL}/TMS/tenants/{uuid}/config?details=customIdp"
 
         samlreposnse= requests_session.get(saml_url)
@@ -157,33 +156,7 @@ BUSINESS INTELLGENCE : {licenses.get('thresholdBIUser')}
         return jsonify({"error": str(e)}), 500
 
 
-#username amd password saved in the har file will be fetched here and reauthenticate here . but i dont think it works.
-def login_user_from_session():
-    username = session.get('username')
-    password = session.get('password') 
-
-    if not username or not password:
-        return False
-
-    login_url = f"{BASE_URL}/login"
-    headers = {
-        "Content-Type": "application/x-www-form-urlencoded"
-    }
-    data = {
-        "username": username,
-        "password": password
-    }
-
-    response = requests_session.get(
-        login_url,
-        headers=headers,
-        data=data,
-        auth=(username, password)
-    )
-
-    return response.status_code == 200
-
-
 #app hostimg
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080,debug=True)
+
