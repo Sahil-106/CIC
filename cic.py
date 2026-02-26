@@ -146,7 +146,7 @@ Bypass SAML: {fqdn}/?saml2idp={bypassondema}
 ---------------------------------------------------
 
 Owner Email : {owneremail}
-SAML : {samlresponse12.get('customIdpEnabled')}
+CustomIdp : {samlresponse12.get('customIdpEnabled')}
 PLANNING PROFESSIONAL :{licenses.get('thresholdProfessionalUser')}
 PLANNING STANDARD : {licenses.get('thresholdStandardUser')}
 BUSINESS INTELLGENCE : {licenses.get('thresholdBIUser')}
@@ -187,3 +187,4 @@ def login_user_from_session():
 #app hostimg
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080,debug=True)
+
