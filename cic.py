@@ -129,6 +129,8 @@ def get_tenant():
         bypassondema = cloud_id_host[:-6] if cloud_id_host else ""
 
         formatted_output = f"""
+SAP ANALYTICS CLOUD
+
 FQDN: {fqdn}
 systemUrl: {system_url_val}
 Cloud ID Host: {cloud_id_host}
@@ -187,4 +189,5 @@ def login_user_from_session():
 #app hostimg
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080,debug=True)
+
 
