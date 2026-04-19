@@ -141,7 +141,7 @@ UI Version: N/A
 Update Group: {update_group}
 ----!----
 CIC Link: {BASE_URL}/static/index.html#/Tenant/{cic_link_uuid}
-Bypass SAML: {fqdn}/?saml2idp={bypassondema}
+Bypass SAML: https://{fqdn}/?saml2idp={bypassondema}
 
 ---------------------------------------------------
                SAML STATUS + LICENSE INFO
